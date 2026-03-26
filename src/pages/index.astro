@@ -1,17 +1,10 @@
 ---
-
+/* src/pages/index.astro */
+/* Este código se ejecuta en el servidor y redirige al usuario */
 ---
+<meta http-equiv="refresh" content="0;url=/en/" />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<script>
+  // Opcional: Redirección por JavaScript para mayor velocidad
+  window.location.pathname = '/en/';
+</script>
