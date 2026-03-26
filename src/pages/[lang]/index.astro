@@ -3,8 +3,6 @@ import Header from '../../components/Header.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
 import { translations } from '../../data/translations.js';
 
-const logo = new URL('../logo.png', import.meta.url).href;
-
 export function getStaticPaths() {
   return [
     { params: { lang: 'en' } },
@@ -20,7 +18,7 @@ const t = translations[lang as 'en' | 'es'];
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href={logo} />
+    <link rel="icon" type="image/png" href="/logo.png" />
     <title>OSXSpot | {t.status}</title>
   </head>
   <body>
