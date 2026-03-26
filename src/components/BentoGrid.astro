@@ -1,0 +1,44 @@
+---
+interface Props {
+  t: any;
+}
+const { t } = Astro.props;
+---
+
+<section class="features-section">
+  <div class="bento-grid">
+    <div class="bento-item large">
+      <h3>{t.bento_extreme_title}</h3>
+      <p>{t.bento_extreme_desc}</p>
+    </div>
+    <div class="bento-item small rust-gradient">
+      <h3>Rust Core</h3>
+      <p>{t.bento_rust_desc}</p>
+    </div>
+    <div class="bento-item small">
+      <h3>Snapshots</h3>
+      <p>{t.bento_snapshots_desc}</p>
+    </div>
+    <div class="bento-item large">
+      <h3>Zero Background</h3>
+      <p>{t.bento_zero_desc}</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+  .bento-grid { display: grid; grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(2, 300px); gap: 20px; }
+  .bento-item { background: #121212; border-radius: 30px; padding: 40px; border: 1px solid #2c2c2e; display: flex; flex-direction: column; justify-content: flex-end; transition: transform 0.4s ease; }
+  .bento-item:hover { transform: scale(1.02); }
+  .large { grid-column: span 4; }
+  .small { grid-column: span 2; }
+  .rust-gradient { background: linear-gradient(145deg, #007AFF, #003366); }
+  h3 { font-size: 28px; margin: 0 0 10px; font-weight: 600; color: white; }
+  p { color: #86868b; margin: 0; font-size: 16px; }
+  
+  @media (max-width: 900px) {
+    .bento-grid { display: flex; flex-direction: column; }
+    .bento-item { height: 250px; }
+  }
+</style>

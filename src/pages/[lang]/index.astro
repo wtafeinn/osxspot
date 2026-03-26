@@ -1,0 +1,64 @@
+---
+import Header from '../../components/Header.astro';
+import BentoGrid from '../../components/BentoGrid.astro';
+import { translations } from '../../data/translations.js';
+
+export function getStaticPaths() {
+  return [
+    { params: { lang: 'en' } },
+    { params: { lang: 'es' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const t = translations[lang as 'en' | 'es'];
+---
+
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OSXSpot | {t.status}</title>
+  </head>
+  <body>
+    <Header lang={lang} />
+    
+    <main>
+      <section class="hero">
+        <span class="status-badge">{t.status}</span>
+        <h1>{t.hero_title}</h1>
+        <p>{t.hero_desc}</p>
+        <a href="#notify" class="btn-notify">{t.hero_btn}</a>
+      </section>
+
+      <BentoGrid t={t} />
+      
+      <section class="notify-section" id="notify">
+        <h2 style="font-size: 42px; text-align: center;">Join the Waitlist</h2>
+        </section>
+    </main>
+
+    <footer>
+      <p>© 2026 OSXSpot Engineering. {t.footer}</p>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  body {
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    font-family: -apple-system, sans-serif;
+  }
+  .hero {
+    height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #000 70%);
+  }
+  .status-badge { color: #007AFF; font-weight: 600; font-size: 14px; text-transform: uppercase; margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(50px, 12vw, 120px); font-weight: 700; margin: 0; line-height: 0.9; background: linear-gradient(180deg, #fff 30%, #555 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero p { font-size: 24px; color: #86868b; margin: 30px auto; max-width: 700px; }
+  .btn-notify { background: white; color: black; padding: 16px 40px; border-radius: 15px; font-weight: bold; text-decoration: none; transition: opacity 0.2s; }
+  .btn-notify:hover { opacity: 0.8; }
+  footer { text-align: center; padding: 60px; color: #333; border-top: 1px solid #2c2c2e; }
+</style>

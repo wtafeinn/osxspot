@@ -1,0 +1,42 @@
+---
+interface Props {
+  lang: 'en' | 'es';
+}
+const { lang } = Astro.params;
+---
+
+<header class="blur-header">
+  <div class="logo">OSX<span>Spot</span></div>
+  <a href={lang === 'en' ? '/es' : '/en'} class="lang-toggle">
+    {lang === 'en' ? 'ESP' : 'ENG'}
+  </a>
+</header>
+
+<style>
+  .blur-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(20px);
+    position: fixed;
+    top: 0; width: 100%;
+    box-sizing: border-box;
+    z-index: 100;
+  }
+  .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: white; }
+  .logo span { color: #007AFF; }
+  .lang-toggle {
+    background: transparent;
+    border: 1px solid #2c2c2e;
+    color: #86868b;
+    padding: 6px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .lang-toggle:hover { border-color: white; color: white; }
+</style>
