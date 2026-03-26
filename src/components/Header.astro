@@ -6,7 +6,10 @@ const { lang } = Astro.params;
 ---
 
 <header class="blur-header">
-  <div class="logo">OSX<span>Spot</span></div>
+  <div class="logo">
+    <img src="/src/imgs/logo.png" alt="OSXSpot logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline';" />
+    <span class="logo-text" style="display:none;">OSX<span>Spot</span></span>
+  </div>
   <a href={lang === 'en' ? '/es' : '/en'} class="lang-toggle">
     {lang === 'en' ? 'ESP' : 'ENG'}
   </a>
@@ -25,7 +28,10 @@ const { lang } = Astro.params;
     box-sizing: border-box;
     z-index: 100;
   }
-  .logo { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: white; }
+  .logo { display: flex; align-items: center; font-size: 20px; font-weight: 700; letter-spacing: -0.5px; color: white; gap: 8px; }
+  .logo img { height: 28px; width: auto; display: block; }
+  .logo-text { color: white; }
+  .logo-text span { color: #007AFF; }
   .logo span { color: #007AFF; }
   .lang-toggle {
     background: transparent;
