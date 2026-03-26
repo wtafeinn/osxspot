@@ -3,7 +3,7 @@ import Header from '../../components/Header.astro';
 import BentoGrid from '../../components/BentoGrid.astro';
 import { translations } from '../../data/translations.js';
 
-const logo = new URL('../../imgs/logo.png', import.meta.url).href;
+const logo = new URL('../logo.png', import.meta.url).href;
 
 export function getStaticPaths() {
   return [
