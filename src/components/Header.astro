@@ -7,7 +7,7 @@ const { lang } = Astro.params;
 
 <header class="blur-header">
   <div class="logo">
-    <img src="/src/imgs/logo.png" alt="OSXSpot logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.setAttribute('aria-label', 'OSXSpot');" />
+    <img src="/logo.png" alt="OSXSpot logo" loading="lazy" onerror="this.style.display='none'; this.parentElement.setAttribute('aria-label', 'OSXSpot');" />
   </div>
   <a href={lang === 'en' ? '/es' : '/en'} class="lang-toggle">
     {lang === 'en' ? 'ESP' : 'ENG'}
