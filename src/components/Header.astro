@@ -17,7 +17,7 @@ const { lang } = Astro.params;
 <style>
   .blur-header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 20px 40px;
     background: rgba(0, 0, 0, 0.8);
@@ -27,7 +27,14 @@ const { lang } = Astro.params;
     box-sizing: border-box;
     z-index: 100;
   }
-  .logo { display: flex; align-items: center; font-size: 24px; font-weight: 700; letter-spacing: -0.5px; color: white; gap: 10px; }
+  .logo {
+    position: absolute;
+    top: 12px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    color: white;
+  }
   .logo img { height: 42px; width: auto; display: block; }
   .logo span { color: #007AFF; }
   .lang-toggle {
